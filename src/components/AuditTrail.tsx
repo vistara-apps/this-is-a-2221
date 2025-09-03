@@ -26,6 +26,7 @@ interface AuditTrailProps {
   offers?: any[]; // This would be the Offer type from OfferTracker
   documents?: any[]; // This would be a Document type
   exportFormat?: 'pdf' | 'csv' | 'json';
+  subscriptionTier?: 'free' | 'pro' | 'premium';
 }
 
 export const AuditTrail: React.FC<AuditTrailProps> = ({
@@ -34,6 +35,7 @@ export const AuditTrail: React.FC<AuditTrailProps> = ({
   offers = [],
   documents = [],
   exportFormat = 'pdf',
+  subscriptionTier = 'free',
 }) => {
   // Generate audit events from project data
   const generateAuditEvents = (): AuditEvent[] => {
@@ -470,4 +472,3 @@ export const AuditTrail: React.FC<AuditTrailProps> = ({
     </div>
   );
 };
-
