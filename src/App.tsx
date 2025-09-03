@@ -14,7 +14,7 @@ import { useSampleSegments } from './hooks/useSampleSegments';
 import { useRiskAssessment } from './hooks/useRiskAssessment';
 import { useSubscription } from './hooks/useSubscription';
 import { useErrorHandler } from './hooks/useErrorHandler';
-import { Project, SampleSegment, NegotiationAttempt } from './types';
+import { Project, SampleSegment, NegotiationAttempt, Offer } from './types';
 
 function App() {
   // State
@@ -29,7 +29,7 @@ function App() {
     updatedAt: new Date(),
   });
   const [negotiations, setNegotiations] = useState<NegotiationAttempt[]>([]);
-  const [offers, setOffers] = useState<any[]>([]);
+  const [offers, setOffers] = useState<Offer[]>([]);
   
   // Hooks
   const { 

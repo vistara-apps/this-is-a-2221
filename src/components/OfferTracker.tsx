@@ -7,23 +7,7 @@
 
 import React, { useState } from 'react';
 import { Plus, Edit2, Trash2, Check, X, DollarSign, Percent } from 'lucide-react';
-
-interface Offer {
-  id: string;
-  date: Date;
-  type: 'flat' | 'royalty' | 'hybrid';
-  flatFee?: number;
-  royaltyPercentage?: number;
-  advanceAmount?: number;
-  status: 'pending' | 'accepted' | 'rejected' | 'countered';
-  notes?: string;
-  counterOffer?: {
-    flatFee?: number;
-    royaltyPercentage?: number;
-    advanceAmount?: number;
-    notes?: string;
-  };
-}
+import { Offer } from '../types';
 
 interface OfferTrackerProps {
   projectId: string;
@@ -517,4 +501,3 @@ export const OfferTracker: React.FC<OfferTrackerProps> = ({
     </div>
   );
 };
-
