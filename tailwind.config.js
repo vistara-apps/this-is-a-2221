@@ -1,8 +1,7 @@
 /** @type {import('tailwindcss').Config} */
-export default {
+module.exports = {
   content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
+    "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
     extend: {
@@ -20,31 +19,42 @@ export default {
         'lg': '16px',
         'xl': '24px',
       },
+      boxShadow: {
+        'card': '0 4px 12px hsla(0, 0%, 0%, 0.08)',
+        'modal': '0 24px 48px hsla(0, 0%, 0%, 0.16)',
+      },
       spacing: {
         'sm': '8px',
         'md': '12px',
         'lg': '20px',
         'xl': '32px',
       },
-      boxShadow: {
-        'card': '0 4px 12px hsla(0, 0%, 0%, 0.08)',
-        'modal': '0 24px 48px hsla(0, 0%, 0%, 0.16)',
+      typography: {
+        'body': 'text-base leading-7',
+        'caption': 'text-sm text-secondary',
+        'display': 'font-bold text-5xl',
+        'heading': 'font-semibold text-3xl',
+        'subheading': 'font-semibold text-xl',
       },
-      animation: {
-        'fade-in': 'fadeIn 250ms cubic-bezier(0.22, 0.61, 0.36, 1)',
-        'slide-up': 'slideUp 250ms cubic-bezier(0.22, 0.61, 0.36, 1)',
-      },
-      keyframes: {
-        fadeIn: {
-          '0%': { opacity: '0' },
-          '100%': { opacity: '1' },
+      container: {
+        center: true,
+        padding: {
+          DEFAULT: '1.5rem',
+          sm: '2rem',
+          lg: '4rem',
+          xl: '5rem',
+          '2xl': '6rem',
         },
-        slideUp: {
-          '0%': { transform: 'translateY(10px)', opacity: '0' },
-          '100%': { transform: 'translateY(0)', opacity: '1' },
+        screens: {
+          sm: '640px',
+          md: '768px',
+          lg: '1024px',
+          xl: '1280px',
+          '2xl': '1536px',
         },
       },
     },
   },
   plugins: [],
 }
+
