@@ -139,7 +139,11 @@ function App() {
   };
   
   // Handle analyzing a negotiation response
-  const handleAnalyzeResponse = async (response: string) => {
+  const handleAnalyzeResponse = async (response: string): Promise<{
+    sentiment: 'positive' | 'neutral' | 'negative';
+    nextSteps: string;
+    suggestedReply: string;
+  }> => {
     try {
       return await openaiService.analyzeNegotiationResponse(response);
     } catch (error) {
@@ -357,4 +361,3 @@ const openaiService = {
 };
 
 export default App;
-
