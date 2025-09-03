@@ -215,7 +215,18 @@ class OpenAIService {
       
       // Parse the response to extract the JSON
       const responseContent = completionResponse.choices[0].message.content;
-      return JSON.parse(responseContent);
+      const parsedResponse = JSON.parse(responseContent);
+      
+      // Ensure sentiment is one of the allowed values
+      if (!['positive', 'neutral', 'negative'].includes(parsedResponse.sentiment)) {
+        parsedResponse.sentiment = 'neutral';
+      }
+      
+      return parsedResponse as {
+        sentiment: 'positive' | 'neutral' | 'negative';
+        nextSteps: string;
+        suggestedReply: string;
+      };
     } catch (error) {
       console.error('Error analyzing negotiation response:', error);
       return {
@@ -280,4 +291,3 @@ Best regards,
 }
 
 export const openaiService = new OpenAIService();
-
