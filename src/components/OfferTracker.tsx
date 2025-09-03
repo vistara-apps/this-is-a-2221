@@ -56,6 +56,7 @@ export const OfferTracker: React.FC<OfferTrackerProps> = ({
     ) {
       const offer: Offer = {
         id: Date.now().toString(),
+        projectId: projectId,
         date: new Date(),
         type: newOffer.type as 'flat' | 'royalty' | 'hybrid',
         flatFee: newOffer.flatFee,
