@@ -4,11 +4,14 @@
  * This file contains type definitions for the application.
  */
 
+// Subscription Tier
+export type SubscriptionTier = 'free' | 'pro' | 'premium';
+
 // User
 export interface User {
   userId: string;
   email: string;
-  subscriptionTier: 'free' | 'pro' | 'premium';
+  subscriptionTier: SubscriptionTier;
   paymentInfo?: {
     customerId: string;
     defaultPaymentMethod?: string;
@@ -136,4 +139,3 @@ export interface RiskAssessmentResult {
   potentialIssues: string[];
   mitigationStrategies: string[];
 }
-
