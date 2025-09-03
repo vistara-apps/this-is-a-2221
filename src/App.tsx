@@ -25,6 +25,7 @@ function App() {
     trackName: 'My Remix Track',
     uploadedSampleFile: '',
     clearanceStatus: 'pending',
+    negotiationLog: [],
     createdAt: new Date(),
     updatedAt: new Date(),
   });
