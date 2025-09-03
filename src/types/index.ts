@@ -39,8 +39,8 @@ export interface Project {
   uploadedSampleFile: string;
   identifiedSourceTrack?: string;
   rightsHolderInfo?: string;
-  clearanceStatus: 'pending' | 'in_progress' | 'cleared' | 'rejected';
-  negotiationLog?: string;
+  clearanceStatus: 'pending' | 'in_progress' | 'cleared' | 'rejected' | 'negotiating';
+  negotiationLog: NegotiationAttempt[];
   riskScore?: number;
   createdAt: Date;
   updatedAt: Date;
