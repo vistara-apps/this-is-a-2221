@@ -50,13 +50,14 @@ export const SampleIdentification: React.FC = () => {
       projectId: Date.now().toString(),
       userId: '1',
       trackName: selectedFile.name.replace(/\.[^/.]+$/, ''),
-      uploadedSampleFile: selectedFile,
+      uploadedSampleFile: selectedFile.name,
       identifiedSourceTrack: analysisResults.sourceTrack,
       rightsHolderInfo: analysisResults.rightsHolder,
-      clearanceStatus: 'identified',
+      clearanceStatus: 'pending',
       negotiationLog: [],
       riskScore: analysisResults.riskScore,
-      createdAt: new Date()
+      createdAt: new Date(),
+      updatedAt: new Date()
     };
     
     addProject(newProject);
@@ -130,7 +131,7 @@ export const SampleIdentification: React.FC = () => {
       {/* Content */}
       {currentStep === 'upload' && (
         <div className="space-y-8">
-          <FileUpload onFileSelect={handleFileSelect} variant="dragDrop" />
+          <FileUpload onFileSelect={handleFileSelect} />
           
           {selectedFile && (
             <div className="text-center">

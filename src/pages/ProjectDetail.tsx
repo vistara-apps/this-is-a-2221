@@ -21,13 +21,15 @@ export const ProjectDetail: React.FC = () => {
     );
   }
 
-  const handleSendMessage = (content: string, rightsHolder: string) => {
+  const handleSendMessage = async (message: string): Promise<void> => {
+    const rightsHolder = currentProject.rightsHolderInfo || 'Rights Holder';
+    
     const newAttempt: NegotiationAttempt = {
       attemptId: Date.now().toString(),
-      projectId: currentProject.projectId,
+      segmentId: 'default-segment-' + currentProject.projectId,
       contactedRightsHolder: rightsHolder,
       dateSent: new Date(),
-      content,
+      content: message,
       status: 'pending'
     };
 
@@ -42,7 +44,7 @@ export const ProjectDetail: React.FC = () => {
       const responseAttempt = {
         ...newAttempt,
         response: 'Thank you for your inquiry. We are reviewing your request and will respond within 5-7 business days with our licensing terms.',
-        status: 'responded' as const
+        status: 'accepted' as const
       };
       
       const updatedLog = updatedNegotiationLog.map(attempt => 
@@ -188,16 +190,21 @@ export const ProjectDetail: React.FC = () => {
       {activeTab === 'negotiations' && (
         <div className="max-w-4xl">
           <ChatThread
-            negotiations={currentProject.negotiationLog}
+            projectName={currentProject.trackName}
+            rightsHolder={currentProject.rightsHolderInfo || 'Rights Holder'}
             onSendMessage={handleSendMessage}
-            variant="withActions"
           />
         </div>
       )}
 
       {activeTab === 'documentation' && (
         <div className="max-w-4xl">
-          <DocumentViewer project={currentProject} variant="logs" />
+          <DocumentViewer 
+            project={currentProject} 
+            segments={[]} 
+            negotiations={currentProject.negotiationLog}
+            subscriptionTier="free"
+          />
         </div>
       )}
     </div>
