@@ -28,7 +28,7 @@ export const ProjectDetail: React.FC = () => {
       contactedRightsHolder: rightsHolder,
       dateSent: new Date(),
       content,
-      status: 'sent'
+      status: 'pending'
     };
 
     const updatedNegotiationLog = [...currentProject.negotiationLog, newAttempt];
