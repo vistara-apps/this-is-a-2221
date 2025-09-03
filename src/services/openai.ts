@@ -8,6 +8,15 @@
 import { ApiService } from './api';
 import { API_CONFIG, FEATURE_FLAGS } from '../config/api';
 
+// Type definition for OpenAI API response
+interface OpenAICompletionResponse {
+  choices: Array<{
+    message: {
+      content: string;
+    };
+  }>;
+}
+
 interface AudioAnalysisResult {
   sourceTrack: string;
   confidence: number;
@@ -115,7 +124,7 @@ class OpenAIService {
         { role: 'user', content: analysisPrompt }
       ];
       
-      const completionResponse = await this.apiService.post('/v1/chat/completions', {
+      const completionResponse: OpenAICompletionResponse = await this.apiService.post('/v1/chat/completions', {
         model: API_CONFIG.openai.model,
         messages,
         temperature: 0.2,
@@ -160,7 +169,7 @@ class OpenAIService {
         { role: 'user', content: prompt }
       ];
       
-      const completionResponse = await this.apiService.post('/v1/chat/completions', {
+      const completionResponse: OpenAICompletionResponse = await this.apiService.post('/v1/chat/completions', {
         model: API_CONFIG.openai.model,
         messages,
         temperature: 0.7,
@@ -206,7 +215,7 @@ class OpenAIService {
         { role: 'user', content: prompt }
       ];
       
-      const completionResponse = await this.apiService.post('/v1/chat/completions', {
+      const completionResponse: OpenAICompletionResponse = await this.apiService.post('/v1/chat/completions', {
         model: API_CONFIG.openai.model,
         messages,
         temperature: 0.3,

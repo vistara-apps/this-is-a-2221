@@ -256,18 +256,18 @@ Signature: [Signature]
 /**
  * Download a generated document
  */
-export function downloadDocument(document: GeneratedDocument): void {
-  const blob = document.content instanceof Blob 
-    ? document.content 
-    : new Blob([document.content], { type: document.mimeType });
+export function downloadDocument(generatedDoc: GeneratedDocument): void {
+  const blob = generatedDoc.content instanceof Blob 
+    ? generatedDoc.content 
+    : new Blob([generatedDoc.content], { type: generatedDoc.mimeType });
   
   const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
+  const a = window.document.createElement('a');
   a.href = url;
-  a.download = document.filename;
-  document.body.appendChild(a);
+  a.download = generatedDoc.filename;
+  window.document.body.appendChild(a);
   a.click();
-  document.body.removeChild(a);
+  window.document.body.removeChild(a);
   URL.revokeObjectURL(url);
 }
 
@@ -306,4 +306,3 @@ export function generateDocDocument(content: string, filename: string): Generate
     mimeType: 'text/plain',
   };
 }
-
