@@ -4,14 +4,25 @@
  * This file contains type definitions for the application.
  */
 
-// Subscription Tier
-export type SubscriptionTier = 'free' | 'pro' | 'premium';
+// Subscription Tier Type (for user's subscription level)
+export type SubscriptionTierLevel = 'free' | 'pro' | 'premium';
+
+// Subscription Tier (for pricing table)
+export interface SubscriptionTier {
+  name: string;
+  price: number;
+  features: string[];
+  limits: {
+    searches: number | 'unlimited';
+    projects: number | 'unlimited';
+  };
+}
 
 // User
 export interface User {
   userId: string;
   email: string;
-  subscriptionTier: SubscriptionTier;
+  subscriptionTier: SubscriptionTierLevel;
   paymentInfo?: {
     customerId: string;
     defaultPaymentMethod?: string;
