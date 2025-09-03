@@ -7,7 +7,7 @@
 
 import React, { useState } from 'react';
 import { Plus, Edit2, Trash2, Check, X, DollarSign, Percent } from 'lucide-react';
-import { Offer } from '../types';
+import { Offer } from '@/lib/types';
 
 interface OfferTrackerProps {
   projectId: string;

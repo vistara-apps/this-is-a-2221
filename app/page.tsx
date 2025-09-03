@@ -1,22 +1,24 @@
-import React, { useState } from 'react';
-import { FileUpload } from './components/FileUpload';
-import { AudioWaveform } from './components/AudioWaveform';
-import { SampleSegmentEditor } from './components/SampleSegmentEditor';
-import { RiskAssessment } from './components/RiskAssessment';
-import { NegotiationTemplates } from './components/NegotiationTemplates';
-import { OfferTracker } from './components/OfferTracker';
-import { TimelineView } from './components/TimelineView';
-import { ChatThread } from './components/ChatThread';
-import { DocumentViewer } from './components/DocumentViewer';
-import { AuditTrail } from './components/AuditTrail';
-import { useAudioAnalysis } from './hooks/useAudioAnalysis';
-import { useSampleSegments } from './hooks/useSampleSegments';
-import { useRiskAssessment } from './hooks/useRiskAssessment';
-import { useSubscription } from './hooks/useSubscription';
-import { useErrorHandler } from './hooks/useErrorHandler';
-import { Project, NegotiationAttempt, Offer } from './types';
+'use client';
 
-function App() {
+import React, { useState } from 'react';
+import { FileUpload } from '@/components/FileUpload';
+import { AudioWaveform } from '@/components/AudioWaveform';
+import { SampleSegmentEditor } from '@/components/SampleSegmentEditor';
+import { RiskAssessment } from '@/components/RiskAssessment';
+import { NegotiationTemplates } from '@/components/NegotiationTemplates';
+import { OfferTracker } from '@/components/OfferTracker';
+import { TimelineView } from '@/components/TimelineView';
+import { ChatThread } from '@/components/ChatThread';
+import { DocumentViewer } from '@/components/DocumentViewer';
+import { AuditTrail } from '@/components/AuditTrail';
+import { useAudioAnalysis } from '@/lib/hooks/useAudioAnalysis';
+import { useSampleSegments } from '@/lib/hooks/useSampleSegments';
+import { useRiskAssessment } from '@/lib/hooks/useRiskAssessment';
+import { useSubscription } from '@/lib/hooks/useSubscription';
+import { useErrorHandler } from '@/lib/hooks/useErrorHandler';
+import { Project, NegotiationAttempt, Offer } from '@/lib/types';
+
+export default function HomePage() {
   // State
   const [audioFile, setAudioFile] = useState<File | null>(null);
   const [project, setProject] = useState<Project>({
@@ -35,20 +37,15 @@ function App() {
   // Hooks
   const { 
     analyzeSample, 
-    
     isAnalyzing, 
-    
     progress, 
     analysisResult 
   } = useAudioAnalysis();
   
   const { 
     segments, 
-    
     addSegment, 
-    
     updateSegment, 
-    
     deleteSegment, 
     importFromAnalysis 
   } = useSampleSegments({
@@ -60,7 +57,6 @@ function App() {
   
   const { 
     riskScore, 
-    
     riskLevel, 
     updateRiskScore 
   } = useRiskAssessment({
@@ -75,7 +71,6 @@ function App() {
   
   const { 
     subscriptionTier, 
-    
     isFeatureAvailable 
   } = useSubscription({
     userId: project.userId,
@@ -83,7 +78,6 @@ function App() {
   });
   
   const { 
-    
     showError, 
     handleError 
   } = useErrorHandler();
@@ -372,5 +366,3 @@ const openaiService = {
     };
   }
 };
-
-export default App;
