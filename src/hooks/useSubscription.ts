@@ -166,7 +166,7 @@ export function useSubscription({
   /**
    * Check if a feature is available in the current subscription tier
    */
-  const isFeatureAvailable = (feature: string, count?: number): boolean => {
+  const isFeatureAvailable = (feature: keyof typeof SUBSCRIPTION_LIMITS.free, count?: number): boolean => {
     const limits = SUBSCRIPTION_LIMITS[subscriptionTier];
     
     if (!(feature in limits)) {
@@ -185,7 +185,7 @@ export function useSubscription({
   /**
    * Get the limit for a specific feature in the current subscription tier
    */
-  const getFeatureLimit = (feature: string): number | 'unlimited' => {
+  const getFeatureLimit = (feature: keyof typeof SUBSCRIPTION_LIMITS.free): number | 'unlimited' | string[] => {
     const limits = SUBSCRIPTION_LIMITS[subscriptionTier];
     
     if (!(feature in limits)) {
@@ -232,4 +232,3 @@ export function useSubscription({
     isSubscriptionActive,
   };
 }
-
