@@ -47,7 +47,9 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
   const [user, setUser] = useState<User | null>({
     userId: '1',
     email: 'demo@sampleflow.com',
-    subscriptionTier: 'free'
+    subscriptionTier: 'free',
+    createdAt: new Date(),
+    updatedAt: new Date()
   });
   const [projects, setProjects] = useState<Project[]>([]);
   const [currentProject, setCurrentProject] = useState<Project | null>(null);
