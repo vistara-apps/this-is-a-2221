@@ -36,7 +36,7 @@ export function useErrorHandler() {
     setErrors(prev => [...prev, errorWithDefaults]);
     
     // Automatically dismiss after duration
-    if (errorWithDefaults.duration > 0) {
+    if (errorWithDefaults.duration && errorWithDefaults.duration > 0) {
       setTimeout(() => {
         dismissError(errorWithDefaults);
       }, errorWithDefaults.duration);
@@ -92,4 +92,3 @@ export function useErrorHandler() {
     createErrorHandler,
   };
 }
-
