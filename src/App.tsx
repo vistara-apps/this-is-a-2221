@@ -348,12 +348,16 @@ function App() {
 
 // Mock openaiService for the demo
 const openaiService = {
-  analyzeNegotiationResponse: async (response: string) => {
+  analyzeNegotiationResponse: async (response: string): Promise<{
+    sentiment: 'positive' | 'neutral' | 'negative';
+    nextSteps: string;
+    suggestedReply: string;
+  }> => {
     // Simulate API call
     await new Promise(resolve => setTimeout(resolve, 1000));
     
     return {
-      sentiment: 'positive',
+      sentiment: 'positive' as const,
       nextSteps: 'Follow up with specific details about your project and how you plan to use the sample.',
       suggestedReply: 'Thank you for your prompt response. I appreciate your interest in my project. I would be happy to provide more details about how I plan to use the sample in my track. The sample will be used as a [describe usage] and I plan to release the track [describe release plans]. Would you be open to discussing specific terms for clearance?'
     };
