@@ -95,7 +95,7 @@ export const OfferTracker: React.FC<OfferTrackerProps> = ({
   const handleAddCounterOffer = (offerId: string, counterOffer: Offer['counterOffer']) => {
     const updatedOffers = offers.map(offer => 
       offer.id === offerId
-        ? { ...offer, counterOffer, status: 'countered' }
+        ? { ...offer, counterOffer, status: 'countered' as const }
         : offer
     );
     
