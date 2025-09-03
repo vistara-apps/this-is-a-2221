@@ -6,7 +6,7 @@
  */
 
 import React, { useState } from 'react';
-import { Download, Copy, FileText, Check, File, Trash2, Edit2 } from 'lucide-react';
+import { Download, Copy, FileText, Check } from 'lucide-react';
 import { DigitalSignature } from './DigitalSignature';
 import { 
   generateClearanceRequest, 
@@ -302,4 +302,3 @@ export const DocumentViewer: React.FC<DocumentViewerProps> = ({
     </div>
   );
 };
-

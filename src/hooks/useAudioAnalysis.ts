@@ -5,7 +5,7 @@
  * and extract relevant metadata.
  */
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { openaiService } from '../services/openai';
 import { elevenlabsService } from '../services/elevenlabs';
 import { FEATURE_FLAGS } from '../config/api';
@@ -200,4 +200,3 @@ export function useAudioAnalysis() {
     audioFeatures,
   };
 }
-

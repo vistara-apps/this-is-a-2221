@@ -7,7 +7,6 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import { Send, Paperclip, User, Clock, Check, X, AlertTriangle } from 'lucide-react';
-import { openaiService } from '../services/openai';
 
 interface Message {
   id: string;
@@ -366,4 +365,3 @@ export const ChatThread: React.FC<ChatThreadProps> = ({
     </div>
   );
 };
-

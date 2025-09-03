@@ -92,6 +92,7 @@ export const OfferTracker: React.FC<OfferTrackerProps> = ({
   };
   
   // Add a counter offer
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const handleAddCounterOffer = (offerId: string, counterOffer: Offer['counterOffer']) => {
     const updatedOffers = offers.map(offer => 
       offer.id === offerId

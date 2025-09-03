@@ -14,7 +14,7 @@ import { useSampleSegments } from './hooks/useSampleSegments';
 import { useRiskAssessment } from './hooks/useRiskAssessment';
 import { useSubscription } from './hooks/useSubscription';
 import { useErrorHandler } from './hooks/useErrorHandler';
-import { Project, SampleSegment, NegotiationAttempt, Offer } from './types';
+import { Project, NegotiationAttempt, Offer } from './types';
 
 function App() {
   // State
@@ -35,15 +35,20 @@ function App() {
   // Hooks
   const { 
     analyzeSample, 
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     isAnalyzing, 
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     progress, 
     analysisResult 
   } = useAudioAnalysis();
   
   const { 
     segments, 
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     addSegment, 
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     updateSegment, 
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     deleteSegment, 
     importFromAnalysis 
   } = useSampleSegments({
@@ -55,6 +60,7 @@ function App() {
   
   const { 
     riskScore, 
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     riskLevel, 
     updateRiskScore 
   } = useRiskAssessment({
@@ -69,6 +75,7 @@ function App() {
   
   const { 
     subscriptionTier, 
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     isFeatureAvailable 
   } = useSubscription({
     userId: project.userId,
@@ -76,6 +83,7 @@ function App() {
   });
   
   const { 
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     showError, 
     handleError 
   } = useErrorHandler();
@@ -336,9 +344,9 @@ function App() {
               &copy; {new Date().getFullYear()} SampleFlow. All rights reserved.
             </div>
             <div className="flex space-x-6 mt-4 md:mt-0">
-              <a href="#" className="text-text-secondary hover:text-primary text-sm">Terms of Service</a>
-              <a href="#" className="text-text-secondary hover:text-primary text-sm">Privacy Policy</a>
-              <a href="#" className="text-text-secondary hover:text-primary text-sm">Contact</a>
+              <button className="text-text-secondary hover:text-primary text-sm">Terms of Service</button>
+              <button className="text-text-secondary hover:text-primary text-sm">Privacy Policy</button>
+              <button className="text-text-secondary hover:text-primary text-sm">Contact</button>
             </div>
           </div>
         </div>

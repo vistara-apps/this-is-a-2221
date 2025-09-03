@@ -17,18 +17,18 @@ export const Navbar: React.FC = () => {
           </div>
           
           <div className="hidden md:flex items-center space-x-6">
-            <a href="#" className="text-text-secondary hover:text-text-primary transition-colors">
+            <button className="text-text-secondary hover:text-text-primary transition-colors">
               Dashboard
-            </a>
-            <a href="#" className="text-text-secondary hover:text-text-primary transition-colors">
+            </button>
+            <button className="text-text-secondary hover:text-text-primary transition-colors">
               Projects
-            </a>
-            <a href="#" className="text-text-secondary hover:text-text-primary transition-colors">
+            </button>
+            <button className="text-text-secondary hover:text-text-primary transition-colors">
               Negotiations
-            </a>
-            <a href="#" className="text-text-secondary hover:text-text-primary transition-colors">
+            </button>
+            <button className="text-text-secondary hover:text-text-primary transition-colors">
               Documentation
-            </a>
+            </button>
           </div>
         </div>
 

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { ArrowLeft, Loader, Music, AlertTriangle, CheckCircle, Clock } from 'lucide-react';
+import { ArrowLeft, Loader, Music, AlertTriangle, CheckCircle } from 'lucide-react';
 import { FileUpload } from '../components/FileUpload';
 import { useApp } from '../contexts/AppContext';
-import { Project, NegotiationAttempt } from '../types';
+import { Project } from '../types';
 
 export const SampleIdentification: React.FC = () => {
   const { addProject, setCurrentProject } = useApp();

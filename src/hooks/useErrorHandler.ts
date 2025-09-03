@@ -22,6 +22,13 @@ export function useErrorHandler() {
   const [errors, setErrors] = useState<ErrorOptions[]>([]);
   
   /**
+   * Dismiss an error message
+   */
+  const dismissError = useCallback((error: ErrorOptions) => {
+    setErrors(prev => prev.filter(e => e !== error));
+  }, []);
+  
+  /**
    * Show an error message
    */
   const showError = useCallback((options: ErrorOptions) => {
@@ -43,14 +50,7 @@ export function useErrorHandler() {
     }
     
     return errorWithDefaults;
-  }, []);
-  
-  /**
-   * Dismiss an error message
-   */
-  const dismissError = useCallback((error: ErrorOptions) => {
-    setErrors(prev => prev.filter(e => e !== error));
-  }, []);
+  }, [dismissError]);
   
   /**
    * Dismiss all error messages

@@ -3,7 +3,7 @@ import { Plus, Search, Filter, BarChart3 } from 'lucide-react';
 import { useApp } from '../contexts/AppContext';
 import { SampleCard } from '../components/SampleCard';
 import { PricingTable } from '../components/PricingTable';
-import { Project, SubscriptionTier } from '../types';
+import { SubscriptionTier } from '../types';
 
 export const Dashboard: React.FC = () => {
   const { user, projects, setCurrentProject, subscriptionTiers } = useApp();
