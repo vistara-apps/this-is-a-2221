@@ -1,27 +1,52 @@
 {
   "name": "sampleflow",
+  "version": "1.0.0",
+  "description": "A Next.js Base Mini App for remix artists to quickly identify sample sources, assess clearance risks, and streamline negotiations with rights holders.",
   "private": true,
-  "version": "0.0.0",
-  "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
-  },
   "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "lucide-react": "^0.263.1",
-    "@headlessui/react": "^1.7.17",
-    "react-router-dom": "^6.8.1"
+    "@coinbase/onchainkit": "^0.31.4",
+    "@tanstack/react-query": "^5.85.9",
+    "@types/node": "^20.0.0",
+    "@types/react": "^18.0.27",
+    "@types/react-dom": "^18.0.10",
+    "lucide-react": "^0.105.0",
+    "next": "^14.2.32",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "viem": "^2.37.2",
+    "wagmi": "^2.16.9"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "lint:fix": "next lint --fix",
+    "format": "prettier --write **/*.{js,jsx,ts,tsx,css,md,json} --config ./.prettierrc"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   },
   "devDependencies": {
-    "@types/react": "^18.0.28",
-    "@types/react-dom": "^18.0.11",
-    "@vitejs/plugin-react": "^4.2.1",
-    "vite": "^5.4.1",
-    "tailwindcss": "^3.4.11",
-    "postcss": "^8.4.0",
-    "autoprefixer": "^10.4.0"
+    "@types/react": "^18.0.27",
+    "@types/react-dom": "^18.0.10",
+    "@typescript-eslint/eslint-plugin": "^8.42.0",
+    "@typescript-eslint/parser": "^8.42.0",
+    "autoprefixer": "^10.4.13",
+    "eslint": "^8.33.0",
+    "eslint-config-next": "^14.0.0",
+    "postcss": "^8.4.21",
+    "prettier": "^2.8.3",
+    "tailwindcss": "^3.2.4",
+    "typescript": "^5.6.3"
   }
 }
